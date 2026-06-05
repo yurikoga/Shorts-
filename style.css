@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff; /* Fundo branco conforme a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centraliza verticalmente */
+}
+
+.loader-container {
+    width: 200px; /* Tamanho do spinner na tela */
+    height: 200px;
+}
+
+.loader-svg {
+    width: 100%;
+    height: 100%;
+    /* ANIMAÇÃO 1: Gira o SVG inteiro continuamente */
+    animation: rotate-loader 2s linear infinite;
+    transform-origin: center; /* Garante que gira no eixo central */
+}
+
+circle {
+    fill: none; /* Sem preenchimento interno */
+}
+
+.background-track {
+    stroke: #e0e0e0; /* Cor cinza claro exata da imagem */
+}
+
+.progress-bar {
+    stroke: #4285f4; /* Cor azul vibrante exata da imagem */
+    stroke-linecap: round; /* Arredonda as pontas da barra azul */
+    
+    /* Define o "dasharray" para cobrir apenas 25% do círculo */
+    /* O valor r=54 dá uma circunferência de aprox 339 */
+    /* dasharray="85, 339" (aprox 25% preenchido) */
+    stroke-dasharray: 85, 339;
+    
+    /* ANIMAÇÃO 2: Faz a barra azul 'crescer e encolher' opcionalmente */
+    /* Mas na imagem original ela parece fixa em 25% e apenas girando. */
+    /* Mantemos fixa em 25% para fidelidade. */
+}
+
+/* --- Definição das Animações --- */
+
+/* Gira o SVG inteiro continuamente */
+@keyframes rotate-loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}
